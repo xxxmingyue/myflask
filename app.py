@@ -2,10 +2,10 @@ from flask import Flask,request
 app = Flask(__name__)
 import click
 
-@app.route("/greet", defaults={'name':'programmer'})
+@app.route("/greet", defaults={'name':'programmer'},methods=['GET', 'POST'])
 @app.route("/greet/<name>")
 def index(name):
-    num = request.args.get('num', '999')
+    num = request.args.get('num', '999gi')
     return "<h1>hello world! %s  No.%s</h1>"%(name,num)
 
 
