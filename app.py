@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,abort
 app = Flask(__name__)
 import click
 
@@ -13,4 +13,7 @@ def index(name):
 def hello():
     '''输出Hello ''' #用于显示帮助文档
     click.echo("Hello, Human!")
-    
+
+@app.route('/404')
+def not_found():
+    abort(404)
