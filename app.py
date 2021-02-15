@@ -1,6 +1,7 @@
 from flask import Flask,request,abort, make_response, redirect, url_for
 import click
 from flask import session #加密cookie
+from flask import render_template
 import os
 
 app = Flask(__name__)
@@ -11,6 +12,19 @@ app.secret_key = os.getenv("SECRET_KEY", "secret string") #获取session密钥
 def index(name):
     num = request.args.get('num', '999')
     return "<h1>hello world! %s  No.%s</h1>"%(name,num)
+
+@app.route('/watchlist')
+def watchlist():
+    user = {
+        'username' : 'Grey Li',
+        'bio' : 'A boy who loves movies'
+    }
+
+    movies = [
+        {'name' : 'My Neighbor', 'year':'1988'},
+        {'name':'这个杀手不太冷', 'year':'2012'},
+    ]
+    return render_template('watchlist.html', user=user, movies=movies)
 
 @app.route('/')
 def hello():
