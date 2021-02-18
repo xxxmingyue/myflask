@@ -1,0 +1,8 @@
+{# 这是宏文件，通过import导入 #}
+{% macro qux(amount=1) %}
+{% if amount == 1 %}
+    I am qux.
+{% elif amount > 1 %}
+    We are quex.
+{% endif %}
+{% endmacro %}
