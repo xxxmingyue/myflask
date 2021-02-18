@@ -1,0 +1,24 @@
+{# 使用extends扩展基模板 #}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head%} 
+        <meta charset="UTF-8">
+        <title>{% block title%}{% endblock %}</title>
+        {% block styles %}{% endblock %}
+    {% end block %}
+</head>
+<body>
+<nav>
+    <ul><li><a href="{{ url_for('index')}}">Home</a></li></ul>
+</nav>
+<main>
+    {% blcok content %}{% endblock %}
+</main>
+<footr>
+    {% blcok footer %}
+    {% endblock %}
+</footr>
+{% block scripts %}{% endblock %}
+</body>
+</html>
