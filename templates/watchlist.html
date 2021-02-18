@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
     <meta charset="UTF-8">
     <title>{{ user.username}}'s Watchlist</title>
 </head>
@@ -19,5 +20,6 @@
         <li>{{ movie.name }} - {{ movie.year }}</li>
     {% endfor %}
 </ul>
+{% include '_banner.html' %}
 </body>
 </html>
