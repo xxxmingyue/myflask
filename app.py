@@ -1,7 +1,7 @@
 from flask import Flask,request,abort, make_response, redirect, url_for
 import click
 from flask import session #加密cookie
-from flask import render_template
+from flask import render_template, flash
 import os
 
 app = Flask(__name__)
@@ -72,3 +72,8 @@ def logout():
     if 'logged_in' in session:
         session.pop('logged_in')
     return redirect(url_for('hello'))
+
+@app.route('/flash')
+def get_flash():
+    flash('I am flash, whos is looking at me')
+    return redirect(url_for('index'))
