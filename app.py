@@ -48,7 +48,7 @@ def set_cookie(name):
 
 #自定义命令
 @app.cli.command()
-def hello():
+def sayhello():
     '''输出Hello ''' #用于显示帮助文档
     click.echo("Hello, Human!")
 
